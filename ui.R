@@ -7,14 +7,16 @@ shinyUI(
     
     sidebarPanel(
       numericInput("glucose", 'Glucose mg/dl', 10, min=50, max=200, step=5),
-      submitButton('Submit')
+      submitButton('Submit'),
+      sliderInput('mu', 'Guess at mean', value=70, min=62, max=74, step=0.05)
       ),
     mainPanel(
       h3('Results of prediction'),
       h4('you entered'),
       verbatimTextOutput("inputValue"),
       h4('Which resulted in prediction of '),
-      verbatimTextOutput('prediction'))
+      verbatimTextOutput('prediction'),
+      plotOutput('newHist'))
     )
   )
 
