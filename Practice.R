@@ -1,1 +1,11 @@
 setwd("~/Coursera/Developing-Data-Products")
+library(devtools)
+library(slidify)
+# library(manipulate)
+# manipulate(plot(1:x), x=slider(1,100))
+# require(rCharts)
+# suppressPackageStartupMessages(library(googleVis))
+# M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(width=600, height=400))
+# print(M, "chart")
+
+author("first_slidify")
