@@ -1,0 +1,110 @@
+Distance Between 2 European Cities
+========================================================
+author: Gaurav Kumar
+date: March 19, 2015
+autosize: true
+
+Executive Summary
+========================================================
+This simple application uses eurodist dataset to give the road distances (in km) between 21 cities in Europe. The distance data are taken from a table in The Cambridge Encyclopaedia.
+
+![alt text](http://www.ezilon.com/maps/images/political-map-of-Europe.gif)
+
+Image Source: Ezilon Maps
+
+Instructions
+========================================================
+Super easy to use. 
+
+Please follow the simple instructions:
+- In the next slide, pick a city name from each of the two dropdown lists.
+- Click Submit button.
+
+Find Distance Between 2 European Cities
+========================================================
+
+```{r echo=FALSE}
+library(shiny)
+data(eurodist)
+text1 <- "Pick a city name from each of the two dropdown lists below."
+text2 <- "Click Submit button."
+
+app <- shinyApp(
+    ui = pageWithSidebar(
+    
+    #set header text
+    headerPanel("Find Distance Between 2 European Cities"),
+  
+    #fill side panel with help text (instructions), 2 list boxes and 1 submit button
+    sidebarPanel(
+      h1("Input:"),
+      helpText(strong("Instructions:")),
+      helpText(strong(tags$ol(tags$li(text1), tags$li(text2)))),
+      selectInput("fromCity1", label="From:", choices=rownames(eurodist), selected=rownames(eurodist)[1]),
+      selectInput("toCity1", label="To:", choices=colnames(eurodist), selected=colnames(eurodist)[2]),
+      submitButton('Submit')
+      ),
+    
+    mainPanel(
+      
+      #show output
+      h1("Output:"),
+      uiOutput("distancetext")
+      
+    )
+  ),
+  
+  server = function(input, output) {
+    
+    #define output text
+    output$distancetext <- renderUI({
+      
+      #use HTML tags so city names and distances are bold
+      HTML('Distance between <strong>',
+            input$fromCity1,
+            "</strong> and <strong>",
+            input$toCity1,
+            "</strong> is <strong>",
+            eurodist[input$fromCity1, input$toCity1],
+            "kilometers</strong>.")
+   })
+  },
+  
+  options = list(height = 100)
+
+)
+
+runApp(app)
+
+```
+
+Test slide
+========================================================
+```{r, echo = FALSE}
+
+library(shiny)
+shinyAppDir("~/Coursera/Developing-Data-Products/Course-Project/", options=list())
+```
+Reference Slide
+========================================================
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
