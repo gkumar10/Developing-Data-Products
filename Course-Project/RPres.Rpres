@@ -1,0 +1,37 @@
+Distance Between 2 European Cities
+========================================================
+author: Gaurav Kumar
+date: March 19, 2015
+
+Executive Summary
+========================================================
+This simple application uses eurodist dataset to give the road distances (in km) between 21 cities in Europe. The distance data are taken from a table in The Cambridge Encyclopaedia.
+
+![alt text](http://www.ezilon.com/maps/images/political-map-of-Europe.gif)
+
+Image Source: Ezilon Maps
+
+
+Reference Slide
+========================================================
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
