@@ -1,4 +1,4 @@
-#setwd("~/Coursera/Developing-Data-Products/Course-Project")
+setwd("~/Coursera/Developing-Data-Products/Course-Project")
 library(shiny)
 
 #The eurodist dataset give the road distances (in km) between 21 cities in Europe. The data are taken from a table in The Cambridge Encyclopaedia.

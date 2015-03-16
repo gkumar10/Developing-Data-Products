@@ -15,12 +15,17 @@ shinyServer(
     output$distancetext <- renderUI({
       
       #use HTML tags so city names and distances are bold
-      HTML('Distance between <strong>',
-            input$fromCity1,
-            "</strong> and <strong>",
-            input$toCity1,
-            "</strong> is <strong>",
-            eurodist[input$fromCity1, input$toCity1],
-            "kilometers</strong>.")
+      if (input$fromCity1 == input$toCity1) {
+        HTML('You picked the same city twice. Please pick 2 different city names.')        
+      } else {
+        HTML('Distance between <strong>',
+             input$fromCity1,
+             "</strong> and <strong>",
+             input$toCity1,
+             "</strong> is <strong>",
+             eurodist[input$fromCity1, input$toCity1],
+             "kilometers</strong>.")  
+      }
+      
    })
     })
