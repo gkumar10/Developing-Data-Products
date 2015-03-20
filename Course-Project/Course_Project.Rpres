@@ -1,0 +1,85 @@
+Distance Between 2 European Cities
+========================================================
+author: submitted by a Coursera student
+date: March 21, 2015
+
+Executive Summary
+========================================================
+This simple application uses eurodist dataset to give the road distances (in km) between 21 cities in Europe. 
+
+The distance data are taken from a table in The Cambridge Encyclopaedia.
+
+***
+
+![map of europe](http://www.ezilon.com/maps/images/political-map-of-Europe.gif)
+
+Image Source: Ezilon Maps
+
+Instructions
+========================================================
+<font color=blue>Super easy to use.</font>
+
+In the next slide, please follow the simple instructions:
+- Pick a city name from each of the two dropdown lists.
+- Click Submit button.
+
+***
+
+<h2>Demo with embedded r code:</h2>
+```{r, echo=FALSE}
+data(eurodist)
+eurodist <- as.matrix(eurodist)
+# paste("From: ", rownames(eurodist)[1])
+# paste("To: ", rownames(eurodist)[2])
+# paste("Distance between ", rownames(eurodist)[1], " and ", rownames(eurodist)[2], " is ", eurodist[rownames(eurodist)[1], rownames(eurodist)[2]], "kilometers.")
+
+```
+<font size=3>
+<u><b>Scenario #1</b></u>
+
+<b>Input: </b>
+
+From: `r rownames(eurodist)[1]`
+
+To: `r rownames(eurodist)[2]`
+
+<b>Output: </b>
+
+Distance between `r rownames(eurodist)[1]` and `r rownames(eurodist)[2]` is `r eurodist[rownames(eurodist)[1], rownames(eurodist)[2]]` kilometers.
+***
+<u><b>Scenario #2</b></u>
+
+<b>Input: </b>
+
+From: `r rownames(eurodist)[2]`
+
+To: `r rownames(eurodist)[2]`
+
+<b>Output: </b>
+
+You picked the same city twice. Please pick 2 different city names.</font>
+
+Shiny app in embedded iframe
+========================================================
+
+<iframe src="https://gkumar10.shinyapps.io/Course-Project/" width="100%" height="500"></iframe>
+
+To Summarize
+========================================================
+<font size=5>In this assignment, you observed:
+
+1. Two form of UI input (city names in selectInput list box).
+2. Server-side operation on city names. Calculation of distance or verification if same city selected twice.
+3. Output displayed as a result of server-side calculation. 
+4. Demo with embedded r code.
+5. Fully functional Shiny app in embedded iframe. (link below)
+6. Fully documented code on Github. (link below)
+7. Total of 5 slides.
+***
+Some other useful information:
+
+1. Link to Shiny server: https://gkumar10.shinyapps.io/Course-Project/
+2. Link to Github: https://github.com/gkumar10/Developing-Data-Products/tree/master/Course-Project
+
+Thanks for your time!
+</font>
